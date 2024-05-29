@@ -6,8 +6,7 @@ from opensearchpy import OpenSearch
 from openai import OpenAI
 import os
 
-# oai_key = os.getenv('OPENAI_API_KEY')
-# client = OpenAI(api_key=oai_key)
+# Set up OpenAI API key from Streamlit secrets
 client = OpenAI(api_key=st.secrets["openai"])
 
 def load_data(filename):
@@ -38,7 +37,6 @@ def perform_knn_search(os_client, index_name, query, model):
         }
     }
     response = os_client.search(index=index_name, body=knn_query)
-    print("\nSearch Response:")
     return [(hit['_source']['question'], hit['_source']['answer']) for hit in response['hits']['hits']]
 
 def main():
@@ -49,6 +47,8 @@ def main():
     st.sidebar.title("Navigation")
     st.sidebar.write("Use this sidebar to navigate through the app.")
     st.sidebar.header("Select a Website")
+
+    debug_mode = st.sidebar.checkbox("Debug Mode", value=False)
     
     data = load_data('vectorized_faqs.json')
     model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -56,42 +56,50 @@ def main():
     
     os_client = OpenSearch(
         hosts=['https://search-faq-chatbot-jzwpe6i7iz5elujpadeanj6fby.us-east-2.es.amazonaws.com'],
-        http_auth=(st.secrets["esuser"], st.secrets["espass"]       )
+        http_auth=(st.secrets["esuser"], st.secrets["espass"])
     )
 
     websites = list(data.keys())
     selected_website = st.sidebar.selectbox("Choose a website", websites)
 
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
     if selected_website:
         faqs = data[selected_website]
 
-        st.header("Ask a Question")
-        question = st.text_input("Ask a question based on the selected website's FAQs")
+        prompt = st.chat_input("Ask a question based on the selected website's FAQs")
+        if prompt:
+            with st.chat_message("user"):
+                st.markdown(f"**User:** {prompt}")
+            st.session_state.messages.append({"role": "user", "content": f"**User:** {prompt}"})
 
-        if question:
-            st.subheader("Intermediate Steps")
-            st.write("**Initial Question:**")
-            st.write(question)
+            # Perform KNN search and display intermediate results
+            similar_faqs = perform_knn_search(os_client, index_name, prompt, model)
+            context = "\n\n".join([f"**Q:** {q}\n**A:** {a}" for q, a in similar_faqs])
 
-            st.subheader("Results without Context")
-            answer_without_context = get_answer(question, context="")
-            st.write(answer_without_context)
+            if debug_mode:
+                intermediate_message = f"**Top 5 Relevant Chunks:**\n\n{context}"
+                with st.chat_message("assistant"):
+                    st.markdown(intermediate_message)
+                st.session_state.messages.append({"role": "assistant", "content": intermediate_message})
 
-            similar_faqs = perform_knn_search(os_client, index_name, question, model)
-            context = "\n".join([f"Q: {q}\nA: {a}" for q, a in similar_faqs])
+                # Show the appended prompt being sent to the API
+                appended_prompt = f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {prompt}\nAnswer:"
+                with st.chat_message("assistant"):
+                    st.markdown(f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```")
+                st.session_state.messages.append({"role": "assistant", "content": f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```"})
 
-            st.write("**Appended Context:**")
-            st.code(context, language='plaintext')
-
-            st.subheader("Results with Context")
-            answer_with_context = get_answer(question, context)
-            st.write(answer_with_context)
-
-            st.subheader("Comparison")
-            st.write("**Answer without Context:**")
-            st.write(answer_without_context)
-            st.write("**Answer with Context:**")
-            st.write(answer_with_context)
+            # Generate the final answer with context
+            answer = get_answer(prompt, context)
+            with st.chat_message("assistant"):
+                st.markdown(f"**Assistant:** {answer}")
+            st.session_state.messages.append({"role": "assistant", "content": f"**Assistant:** {answer}"})
 
 if __name__ == "__main__":
     main()
