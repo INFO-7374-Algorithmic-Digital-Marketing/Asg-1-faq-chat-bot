@@ -5,7 +5,7 @@ import os
 
 def perform_knn_search(os_client, index_name, query, model):
     query_vector = model.encode(query).tolist()  # Ensure query vector matches the dimensionality of the vectors in the index
-
+    
     knn_query = {
         "size": 5,
         "query": {
