@@ -4,17 +4,29 @@ import json
 import numpy as np
 from opensearchpy import OpenSearch
 from openai import OpenAI
-import os
+import boto3
 
-# Set up OpenAI API key from Streamlit secrets
-client = OpenAI(api_key=st.secrets["openai"])
+# Set up OpenAI and Bedrock API clients
+openai_client = OpenAI(api_key=st.secrets["openai"])
+bedrock = boto3.client(service_name='bedrock-runtime', region_name='us-east-1')
 
+# Define the Titan model and inference parameters
+titan_model_id = 'amazon.titan-text-lite-v1'
+titan_inference_params = {
+    'maxTokenCount': 100,
+    'stopSequences': [],
+    'temperature': 0.5,
+    'topP': 0.9
+}
+
+# Load data function
 def load_data(filename):
     with open(filename, 'r') as f:
         return json.load(f)
 
-def get_answer(question, context):
-    response = client.chat.completions.create(
+# OpenAI model answer function
+def get_answer_openai(question, context):
+    response = openai_client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "user", "content": f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {question}\nAnswer:"}
@@ -22,6 +34,14 @@ def get_answer(question, context):
     )
     return response.choices[0].message.content
 
+# Titan model answer function
+def get_answer_titan(question, context):
+    body = json.dumps({'inputText': f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {question}\nAnswer:", 'textGenerationConfig': titan_inference_params})
+    response = bedrock.invoke_model(modelId=titan_model_id, body=body)
+    response_body = json.loads(response.get('body').read())
+    return response_body.get('results')[0].get('outputText')
+
+# Perform KNN search function
 def perform_knn_search(os_client, index_name, query, model):
     query_vector = model.encode(query).tolist()  # Ensure query vector matches the dimensionality of the vectors in the index
 
@@ -48,6 +68,8 @@ def main():
     st.sidebar.write("Use this sidebar to navigate through the app.")
     st.sidebar.header("Select a Website")
 
+    # LLM selection dropdown
+    llm_option = st.sidebar.selectbox("Choose a Language Model", ["OpenAI GPT-3.5-turbo", "Amazon Titan"])
     debug_mode = st.sidebar.checkbox("Debug Mode", value=False)
     
     data = load_data('vectorized_faqs.json')
@@ -95,8 +117,12 @@ def main():
                     st.markdown(f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```")
                 st.session_state.messages.append({"role": "assistant", "content": f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```"})
 
-            # Generate the final answer with context
-            answer = get_answer(prompt, context)
+            # Generate the final answer with context using selected LLM
+            if llm_option == "OpenAI GPT-3.5-turbo":
+                answer = get_answer_openai(prompt, context)
+            else:
+                answer = get_answer_titan(prompt, context)
+            
             with st.chat_message("assistant"):
                 st.markdown(f"**Assistant:** {answer}")
             st.session_state.messages.append({"role": "assistant", "content": f"**Assistant:** {answer}"})
