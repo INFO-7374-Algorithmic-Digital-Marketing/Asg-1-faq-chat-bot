@@ -136,3 +136,5 @@ cython_debug/
 
 scraper/debug-nb.ipynb 
 scraper/debug.py
+
+*secrets.toml*
