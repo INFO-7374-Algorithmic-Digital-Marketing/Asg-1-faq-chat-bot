@@ -7,6 +7,7 @@ from openai import OpenAI
 import boto3
 
 openai_client = OpenAI(api_key=st.secrets["openai"])
+
 # Define the Titan model and inference parameters
 bedrock = boto3.client(service_name='bedrock-runtime', region_name='us-east-1')
 titan_model_id = 'amazon.titan-text-lite-v1'
@@ -50,17 +51,7 @@ def perform_knn_search(os_client, index_name, query, model):
     return [(hit['_source']['question'], hit['_source']['answer']) for hit in response['hits']['hits']]
 
 def perform_knn_search_catalog(os_client, query, model, index_name='info_catalog', top_n=5):
-    # Encode the query to get the query vector
     query_vector = model.encode(query).tolist()
-    # Debug: Print the query vector to check its format
-    # print("Query Vector:", query_vector)
-    # print(len(query_vector))
-
-    # # Ensure the query vector is correctly formatted as a list of floats
-    # if not isinstance(query_vector, list):
-    #     raise ValueError("query_vector should be a list of floats")
-
-    # Change top n according to usecase
     knn_query = {
         "size": 5,
         "query": {
@@ -72,8 +63,5 @@ def perform_knn_search_catalog(os_client, query, model, index_name='info_catalog
             }
         }
     }
-
-    # print("KNN Query:", json.dumps(knn_query, indent=2))
-
     response = os_client.search(index=index_name, body=knn_query) # change the index name according to selected option
     return [(hit['_source']['course'], hit['_source']['description']) for hit in response['hits']['hits']]
