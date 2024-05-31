@@ -9,7 +9,7 @@ This project aims to build a Q/A chatbot using Retrieval-Augmented Generation (R
 [Application Link](https://devesh-qna-rag.streamlit.app/)
 
 
-![Screenshot 2024-05-27 at 4 22 01 PM](https://github.com/deveshcode/QnA_RAG/assets/37287532/7137dcec-66dc-4653-90f8-0fd833e0c5d9)
+![Screenshot 2024-05-27 at 4 22 01 PM](https://github.com/INFO-7374-Algorithmic-Digital-Marketing/faq-chat-bot/blob/main/UI.png)
 
 ## Architecture Diagram:
 
