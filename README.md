@@ -18,13 +18,13 @@ This project aims to build a Q/A chatbot using Retrieval-Augmented Generation (R
 
 ```bash
 git clone https://github.com/INFO-7374-Algorithmic-Digital-Marketing/faq-chat-bot.git
-cd QnA_Chatbot
+cd faq-chat-bot
 ```
 
 2. Create and activate a new Conda environment
 
 ```bash
-conda create --name qna_chatbot_env python=3.9 -y
+conda create --name qna_chatbot_env python=3.10 -y
 conda activate qna_chatbot_env
 ```
 
@@ -37,6 +37,6 @@ pip install -r requirements.txt
 4. Run the Streamlit app
 
 ```bash
-streamlit run app2.py
+streamlit run streamlit_app/app2.py 
 ```
 
