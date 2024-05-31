@@ -12,6 +12,7 @@ def search_similar_questions(os_client, query, model, index_name='faqs', top_n=5
     if not isinstance(query_vector, list):
         raise ValueError("query_vector should be a list of floats")
 
+    # Change top n according to usecase
     knn_query = {
         "size": top_n,
         "query": {
@@ -25,7 +26,7 @@ def search_similar_questions(os_client, query, model, index_name='faqs', top_n=5
         "_source": ["question", "answer"]
     }
 
-    response = os_client.search(index=index_name, body=knn_query)
+    response = os_client.search(index=index_name, body=knn_query) # change the index name according to selected option
 
     return [(hit['_source']['question'], hit['_source']['answer']) for hit in response['hits']['hits']]
 
@@ -36,7 +37,7 @@ if __name__ == "__main__":
     )
 
     model = SentenceTransformer('all-MiniLM-L6-v2')
-    query = "What is Databricks?"
+    query = "What is Databricks?" 
     similar_questions = search_similar_questions(os_client, query, model)
 
     for question, answer in similar_questions:

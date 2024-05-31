@@ -104,6 +104,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+myenv
+
 
 # Spyder project settings
 .spyderproject
@@ -134,3 +136,5 @@ cython_debug/
 
 scraper/debug-nb.ipynb 
 scraper/debug.py
+
+*secrets.toml*
