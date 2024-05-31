@@ -6,6 +6,7 @@ from opensearchpy import OpenSearch
 from openai import OpenAI
 import boto3
 
+index_catalog = st.secrets["index_catalog"]
 openai_client = OpenAI(api_key=st.secrets["openai"])
 session = boto3.Session(
     aws_access_key_id=st.secrets["AWS_SERVER_PUBLIC_KEY"],
@@ -53,7 +54,7 @@ def perform_knn_search(os_client, index_name, query, model):
     response = os_client.search(index=index_name, body=knn_query)
     return [(hit['_source']['question'], hit['_source']['answer']) for hit in response['hits']['hits']]
 
-def perform_knn_search_catalog(os_client, query, model, index_name='info_catalog', top_n=5):
+def perform_knn_search_catalog(os_client, query, model, index_name=index_catalog, top_n=5):
     query_vector = model.encode(query).tolist()
     knn_query = {
         "size": 5,

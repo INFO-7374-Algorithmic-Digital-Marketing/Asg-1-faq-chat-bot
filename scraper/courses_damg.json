@@ -1,0 +1,142 @@
+[
+    {
+        "course": "CSYE\u00a06200.  Concepts of Object-Oriented Design.  (4 Hours)",
+        "description": "Introduces object-oriented design and programming via the Java programming language; the use of inheritance, composition, and interface classes in software design; development of Java applets and applications; study of the Java class libraries, including the swing tool kit for building human computer interfaces, the network package for development of client-server systems, and the collections\u2019 package for data structures and sorting algorithms. Requires a course project. Requires knowledge of C programming.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a06202.  Concepts of Object-Oriented Design with C#.  (4 Hours)",
+        "description": "Introduces object-oriented design and programming via the C# (C-sharp) programming language and its underlying .NET platform. Covers the use of inheritance and composition in software design and development of complex C# .NET applications. Topics include classes, overloading, data abstraction, information hiding, encapsulation, inheritance, polymorphism, file processing, templates, exceptions, container classes, and low-level language features.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a06205.  Concepts of Object-Oriented Design with C++.  (4 Hours)",
+        "description": "Introduces object-oriented design and programming via the C++ programming language. Covers the use of inheritance and composition in software design and development of complex C++ applications. Topics include classes, overloading, data abstraction, information hiding, encapsulation, inheritance, polymorphism, file processing, templates, exceptions, container classes, and low-level language features. Requires a course project.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a06220.  Enterprise Software Design.  (4 Hours)",
+        "description": "Designed to build on previous experience in concepts of object-oriented design courses with equal focus in the three areas of architecture, design, and implementation. Instruction and hands-on exercises cover both server-side and client-side web programming. Offers students an opportunity to build a conceptual understanding and to gain practical experience with popular frameworks (Spring MVC, Hibernate, and Dojo or jQuery) that increase productivity, empower developers, and greatly simplify web development. The goal is to be able to build the server side and client side of substantial web-based, client-server, database-intensive, multitier applications.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06200with a minimum grade of B-  orCSYE\u00a06202with a minimum grade of B-  orCSYE\u00a06205with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a06225.  Network Structures and Cloud Computing.  (4 Hours)",
+        "description": "Offers a practical foundation in cloud computing and hands-on experience with the tools used in cloud computing. Designed as a foundation course for cloud-aware, adept professionals. Focuses on the fundamentals of cloud computing, the principal areas of cloud architectures, cloud security, cloud governance, cloud storage, cloud virtualization, and cloud capacity. Discusses the Internet evolution that led to cloud and how cloud applications revolutionized Web applications.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06200with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a06230.  Operating Systems.  (4 Hours)",
+        "description": "Covers basic concepts of operating systems and system programming, such as utility programs, subsystems, and multiple-program systems. Main topics include processes, interprocess communication, and synchronization; memory allocation, segmentation, and paging; loading, linking, and libraries; resource allocation, scheduling, and performance evaluation; file systems, storage devices, and I/O systems; and protection, security, and privacy. Emphasizes key concepts through code design and development.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a06305.  Introduction to Quantum Computing with Applications.  (4 Hours)",
+        "description": "Addresses how scientists and engineers can use quantum computers to simulate large quantum mechanical systems easily, which is crucial in discovery of new lifesaving drugs and new efficient materials. Quantum computers maintain an abstract state where both 0 and 1 states exist simultaneously with some probability. The course delves deeper into how such an abstract state can be realized physically and used as a computing tool to simplify algorithm implementation and execution. Offers students an opportunity to learn about the latest breakthroughs in cryptography systems (RSA), as well as fast database search; accurate weather forecasting; ultrasecure communication; and fast image recognition.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a06700.  Technical Writing and Professional Development.  (0 Hours)",
+        "description": "Emphasizes professional communication skills through intensive verbal practice and technical writing application. Students work together in groups and individually to practice verbal and written communication to increase their English competency and comfort level for work in the United States. Offers students an opportunity to develop their ability to communicate technical skills sets in a professional setting. This course does not count toward graduation requirements.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a06962.  Elective.  (1-4 Hours)",
+        "description": "Offers elective credit for courses taken at other academic institutions. May be repeated without limit.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a07105.  High-Performance Parallel Machine Learning and AI.  (4 Hours)",
+        "description": "Explores the parallelization of machine learning and deep learning code that leads to high performance on heterogeneous cluster architectures. Includes the applications to a variety of domains, including image classification, speech recognition, and natural language processing, etc. Covers a brief overview of the emerging parallel computing applications. Analyzes system architectures for different kinds of parallel computing systems (shared-memory system, distributed-memory system, accelerator system, and hybrid). Offers students an opportunity to practice the principles and the practice of the emerging parallelism-based machine-learning paradigm.",
+        "prerequisites": "Prerequisite(s):DAMG\u00a06105with a minimum grade of B  orINFO\u00a06105with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a07125.  Advanced Cloud Computing.  (4 Hours)",
+        "description": "Examines a collection of repeatable, generic software design patterns such as sidecar pattern, ambassador pattern, adapter pattern, event driven, stream and batch processing, containers and container orchestration with Kubernetes, replication, partitioning, transactions, consistency, and consensus to help make the development of reliable distributed systems more approachable and efficient. Microservices, containers, and container orchestration have fundamentally changed how distributed systems are developed. Offers students an opportunity to determine which kind of technology is appropriate for which purpose and to understand how these patterns can be combined to form the foundation of a good application architecture.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06225with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a07200.  Big-Data System Engineering Using Scala.  (4 Hours)",
+        "description": "Covers the fundamentals of functional programming with Scala and seeks to provide a basic, practical foundation for students who want to use it as a language for working with big-data platforms. Scala is one of a new breed of general-purpose functional programming languages that is strongly typed and is object oriented. It runs on the Java virtual machine and is able to share libraries from the vast collection of open-source projects written in Java. For these reasons it is readily accessible by programmers of Java, C++, and similar languages.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a07215.  Foundations of Parallel, Concurrent, and Multithreaded Programming.  (4 Hours)",
+        "description": "Covers all aspects of concurrent program design, development, and implementation utilizing the Java multithreading API/facilities. Topics covered include thread safety and lifetime issues, block structured versus explicit synchronization, intrinsic versus explicit locking, thread pools, liveness issues, deadlock, livelock, race conditions, atomicity, performance and scalability, execution policies, test strategies. Major Java multithreading API/facilities covered include synchronized blocks, wait sets, intrinsic locks and condition variables, synchronized and concurrent collections, executor framework. Comparisons between the Java multithreading API and the Posix Pthreads multithreading standard are provided.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06200with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a07220.  Deployment and Operation of Software Applications.  (4 Hours)",
+        "description": "Introduces the four most popular infrastructure languages\u2014Chef, Puppet, Ansible, and Salt\u2014 and codes with them in the same way that we code with Java, Python, C#, and Javascript. IT infrastructure languages and their underlying methods and tools, referred to as DevOps, bridge the gap between software development and software administration. Instead of recruiting CPU cycles on our laptops, we create and manage virtual IT infrastructures on a public cloud. Offers students an opportunity to learn how to manipulate virtual machines, containers, and lambdas and set up assembly lines on public clouds in the fashion of a Model T assembly line.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06220with a minimum grade of B-  orINFO\u00a06250with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a07224.  Engineering Reliable, Scalable, and Maintainable Distributed Systems.  (4 Hours)",
+        "description": "Covers repeatable, generic software design patterns such as sidecar, ambassador, adapter, event driven, stream and batch processing, containers and container orchestration, replication, partitioning, transactions, consistency, and consensus to help make the development of reliable distributed systems more approachable and efficient. Studies the common language and framework these patterns provide. Microservices, containers, and container orchestration have fundamentally changed how distributed systems are developed. Designed to find ways of thinking about distributed systems\u2014not just how they work, but also why they work, and what questions we need to ask. Offers students an opportunity to decide which kind of technology is appropriate for which purpose and to understand how these patterns can be combined to form the foundation of a sound application architecture.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06225with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a07230.  Software Engineering.  (4 Hours)",
+        "description": "Looks at the software life cycle (requirements analysis and specification, software design, coding, testing, and maintenance). Offers verification, validation, and documentation at various stages of the life cycle. Covers the Unified Modeling Language as applied to the software life cycle. Covers applications of design patterns. Overviews user interface design, software metrics, and software development environments. Emphasis is on modular software construction and development of modular libraries. Requires a small software development project.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06200(may be taken concurrently) with a minimum grade of B-  orINFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orINFO\u00a05100(may be taken concurrently) with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a07235.  Model-Driven Architecture.  (4 Hours)",
+        "description": "Develops the skills to utilize new software modeling and management techniques in each state of the life cycle of component-based software systems. Applies and extends a basic knowledge of the Unified Modeling Language (UML). Introduces and applies metamodel management concepts using the OMG metaobject facility as a technology baseline. Develops a component-based software project throughout the course using C++ or Java; grading primarily based on the software project and its public presentation.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a07270.  Building Virtual Environments.  (4 Hours)",
+        "description": "Covers the basics of three-dimensional graphics programming using the Unity game engine. Includes a built-in terrain editor; a shader development facility; built-in physics; and advanced lighting, shadows, and audio to build 3D virtual environments and serious games. Javascript and C# can be used for scripting. Assets from various 3D modeling programs can be imported. Facilities to publish to the PC, Mac, iPhone and Wii and support for real-time multiplayer games are available. Requires a final project.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a07280.  User Experience Design and Testing.  (4 Hours)",
+        "description": "Introduces user experience concepts while working on Web design projects. Offers students an opportunity to build the necessary skill sets to make better decisions when designing contemporary websites that cater to customer needs. Students practice interview techniques to understand user requirements while keeping user experience central to the effort. Uses wireframes and user scenarios to drive the creative design process. Various case studies are introduced and discussed in team settings to emphasize user perspectives. Uses quality assurance and usability testing to drive validation and user-acceptance testing and approvals.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06200(may be taken concurrently) with a minimum grade of B-  orINFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orINFO\u00a05100(may be taken concurrently) with a minimum grade of B-"
+    },
+    {
+        "course": "CSYE\u00a07370.  Deep Learning and Reinforcement Learning in Game Engineering.  (4 Hours)",
+        "description": "Introduces a deep learning and reinforcement learning framework for games called ML-Agents, which enable games and simulations to serve as environments for training intelligent agents. Studies and reviews classical game artificial intelligence (game AI), primarily search and decision trees. Uses game AI to generate responsive, adaptive, or intelligent behaviors primarily in nonplayer characters (NPCs) similar to human-like intelligence. Game AI includes everything from simple chasing and evading to pattern movement, to create opponents with complex tactical and strategic decisions.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of B  orINFO\u00a05100with a minimum grade of B  orCSYE\u00a06200with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a07374.  Special Topics in Computer Systems Engineering.  (4 Hours)",
+        "description": "Offers topics of current interest in computer systems engineering. May be repeated without limit.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a07380.  Theory and Practical Applications of AI Generative Modeling.  (4 Hours)",
+        "description": "Covers transformer-based language models (e.g. ChatGPT and Bard), generative image models (e.g., GAN and variational autoencoder), and generative models for structured data (e.g., Bayesian networks). Explores generative models for data of major modalities, namely, textual, image, and structured relational. Offers the opportunity to learn how to build such models for practical applications in different verticals using Python and numerous publicly available libraries in Keras/TensorFlow and Pytorch. Given recent surges in generative modeling tools, generative modeling technologies and applications are necessary skills for students entering the field of industrial data science.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a07470.  Advanced Game Analytics.  (4 Hours)",
+        "description": "Explores the use of deep learning for the automated creation and analysis of game metrics. Uses convolutional neural networks (CNNs) to segment and identify anything on a game screen in real-time, which is used as input to AI systems. The second part of the course analyzes the importance of the metrics. Covers surrogate models, Shannon entropy, Individual Conditional Expectation (ICE), leave-one-covariate-out (LOCO), local feature importance, partial dependency plots, tree-based feature importance, standardized coefficient importance, accumulated local effects (ALE) plots, and Shapley values. Lastly, covers building predictive models with game data using the following techniques: supervised learning, generative/discriminative learning, parametric/nonparametric learning, neural networks, unsupervised learning reinforcement learning, and adaptive control.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06105with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a07550.  Distributed Intelligent Agents in the Metaverse.  (4 Hours)",
+        "description": "Introduces the field of agent-based computing as enablers of metaverse social avatar systems. Focuses on important aspects that shape the agent\u2019s experience within the challenging virtual-reality design and engineering landscape. Covers personal space, personified locomotion, agent aesthetics, agent social interactions, and agent\u2019s relation to blockchain decentralized virtual identity. Students engage in projects to deliver VR platforms applicable to engineering fields such as mechanical, civil, chemical, and bioengineering. Considers distributed learning applications and certification of credentials, as well. Offers students an opportunity to learn how to configure various agent types to construct virtual worlds bursting with lively agent interactive experiences that go far beyond the constraints of the physical reality.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a07270with a minimum grade of B ;INFO\u00a06205with a minimum grade of B"
+    },
+    {
+        "course": "CSYE\u00a07962.  Elective.  (1-4 Hours)",
+        "description": "Offers elective credit for courses taken at other academic institutions. May be repeated without limit.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a07986.  Research.  (0 Hours)",
+        "description": "Offers students an opportunity to conduct full-time research under faculty supervision.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a07990.  Thesis.  (1-8 Hours)",
+        "description": "Offers analytical and/or experimental work conducted under the direction of the faculty in fulfillment of the requirements for the degree. Requires first-year students to attend a graduate seminar program that introduces students to the methods of choosing a research topic, conducting research, and preparing a thesis. Requires successful completion of the seminar program. May be repeated without limit.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "CSYE\u00a07996.  Thesis Continuation - Half-Time.  (0 Hours)",
+        "description": "Offers analytical and/or experimental work conducted under the auspices of the department.",
+        "prerequisites": "None"
+    }
+]
