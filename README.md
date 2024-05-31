@@ -17,7 +17,7 @@ This project aims to build a Q/A chatbot using Retrieval-Augmented Generation (R
 1. Clone the repository
 
 ```bash
-git clone https://github.com/deveshcode/QnA_Chatbot.git
+git clone https://github.com/INFO-7374-Algorithmic-Digital-Marketing/faq-chat-bot.git
 cd QnA_Chatbot
 ```
 
