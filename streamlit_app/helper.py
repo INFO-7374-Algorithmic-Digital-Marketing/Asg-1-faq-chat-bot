@@ -7,7 +7,10 @@ from openai import OpenAI
 import boto3
 
 openai_client = OpenAI(api_key=st.secrets["openai"])
-
+session = boto3.Session(
+    aws_access_key_id=st.secrets["AWS_SERVER_PUBLIC_KEY"],
+    aws_secret_access_key=st.secrets["AWS_SERVER_SECRET_KEY"],
+)
 # Define the Titan model and inference parameters
 bedrock = boto3.client(service_name='bedrock-runtime', region_name='us-east-1')
 titan_model_id = 'amazon.titan-text-lite-v1'
@@ -18,17 +21,17 @@ titan_inference_params = {
     'topP': 0.9
 }
 
-def get_answer_openai(question, context):
+def get_answer_openai(question, context, prompt_init):
     response = openai_client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "user", "content": f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {question}\nAnswer:"}
+            {"role": "user", "content": f"{prompt_init}\n\nContext: {context}\n\nQuestion: {question}\nAnswer:"}
         ]
     )
     return response.choices[0].message.content
 
-def get_answer_titan(question, context):
-    body = json.dumps({'inputText': f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {question}\nAnswer:", 'textGenerationConfig': titan_inference_params})
+def get_answer_titan(question, context, prompt_init):
+    body = json.dumps({'inputText': f"{prompt_init}\n\nContext: {context}\n\nQuestion: {question}\nAnswer:", 'textGenerationConfig': titan_inference_params})
     response = bedrock.invoke_model(modelId=titan_model_id, body=body)
     response_body = json.loads(response.get('body').read())
     return response_body.get('results')[0].get('outputText')

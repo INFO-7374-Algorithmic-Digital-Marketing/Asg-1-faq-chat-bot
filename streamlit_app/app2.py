@@ -48,10 +48,12 @@ def main():
 
             if selected_website == "databricks":
                 similar_faqs = helper.perform_knn_search(os_client, index_name, prompt, model)
+                prompt_init = "Answer the question based on the context"
 
             elif selected_website == "course_catalog":
                 similar_faqs = helper.perform_knn_search_catalog(os_client, prompt, model)
-                
+                prompt_init = "Answer the question based on the context and also give the course description"
+
             context = "\n\n".join([f"**Q:** {q}\n**A:** {a}" for q, a in similar_faqs])
 
             if debug_mode:
@@ -61,15 +63,15 @@ def main():
                 st.session_state.messages.append({"role": "assistant", "content": intermediate_message})
 
                 # Show the appended prompt being sent to the API
-                appended_prompt = f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {prompt}\nAnswer:"
+                appended_prompt = f"{prompt_init}\n\nContext: {context}\n\nQuestion: {prompt}\nAnswer:"
                 with st.chat_message("assistant"):
                     st.markdown(f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```")
                 st.session_state.messages.append({"role": "assistant", "content": f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```"})
 
             if llm_option == "OpenAI GPT-3.5-turbo":
-                answer = helper.get_answer_openai(prompt, context)
+                answer = helper.get_answer_openai(prompt, context, prompt_init)
             else:
-                answer = helper.get_answer_titan(prompt, context)
+                answer = helper.get_answer_titan(prompt, context, prompt_init)
             
             with st.chat_message("assistant"):
                 st.markdown(f"**Assistant:** {answer}")
