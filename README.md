@@ -22,34 +22,16 @@ This project aims to build a Q/A chatbot using Retrieval-Augmented Generation (R
 - Evaluate the chatbot's performance using AWS Bedrock.
 
 ## Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/deveshcode/QnA_Chatbot.git
-2. Create a new repository on GitHub.
-3. Ask everyone's GitHub usernames and add them as collaborators to the repository.
-4. Initialize the repository with a README file:
-    ```bash
-    touch README.md
-    git add README.md
-    git commit -m "Initial commit"
-    git push origin main
-    ```
-5. Create a CONTRIBUTING.md file to outline coding standards, branching strategy, and pull request guidelines:
-    ```bash
-    touch CONTRIBUTING.md
-    git add CONTRIBUTING.md
-    git commit -m "Add CONTRIBUTING.md"
-    git push origin main
-    ```
-6. Instruct everyone to fork the repository and create their own branch to work on:
-    ```bash
-    git checkout -b <branch-name>
-    ```
-7. Each contributor can now start working on their respective branches and make changes.
-8. Once the changes are ready, they can create a pull request to merge their branch into the main branch.
-9. Review the pull requests and merge them if they meet the coding standards and guidelines outlined in CONTRIBUTING.md.
-10. Continue working on the project, following the established workflow.
+# Clone the repository
+git clone https://github.com/deveshcode/QnA_Chatbot.git
+cd QnA_Chatbot
 
-Remember to replace `<branch-name>` with an appropriate name for each contributor's branch.
+# Create and activate a new Conda environment
+conda create --name qna_chatbot_env python=3.9 -y
+conda activate qna_chatbot_env
 
-Let me know if you need any further assistance!
+# Install the required packages
+pip install -r requirements.txt
+
+# Run the Streamlit app
+streamlit run app2.py
