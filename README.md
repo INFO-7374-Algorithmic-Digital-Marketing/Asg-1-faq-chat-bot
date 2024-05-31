@@ -5,7 +5,7 @@
 
 ## Architecture Diagram:
 
-![Architecture Diagram](https://github.com/INFO-7374-Algorithmic-Digital-Marketing/faq-chat-bot/blob/main/rag_chatbot.drawio.png)
+![Architecture Diagram](https://github.com/INFO-7374-Algorithmic-Digital-Marketing/faq-chat-bot/blob/main/rag_chatbot_final.drawio.png)
 
 
 ## Project Overview
