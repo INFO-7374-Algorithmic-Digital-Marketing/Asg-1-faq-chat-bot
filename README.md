@@ -22,11 +22,21 @@ cd QnA_Chatbot
 ```
 
 2. Create and activate a new Conda environment
+
+```bash
 conda create --name qna_chatbot_env python=3.9 -y
 conda activate qna_chatbot_env
+```
 
 3. Install the required packages
+
+```bash
 pip install -r requirements.txt
+```
 
 4. Run the Streamlit app
+
+```bash
 streamlit run app2.py
+```
+
